@@ -1,0 +1,20 @@
+# import Post from "./generated/prisma.graphql"
+# import TimeSegment, GeoPoint, GeoSegment, RunningDetails, RunningDetailsCreateInput from "./generated/prisma.graphql"
+
+type Query {
+  """
+  iot app comm example service
+  """
+  running(dateTime: String): RunningDetails
+  runnings: [RunningDetails]
+  feed: [Post!]!
+  drafts: [Post!]!
+  post(id: ID!): Post
+}
+
+type Mutation {
+  createDraft(title: String!, text: String): Post
+  deletePost(id: ID!): Post
+  publish(id: ID!): Post
+  recordRunning(runningInput: RunningDetailsCreateInput): RunningDetails
+}

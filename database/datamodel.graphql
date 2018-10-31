@@ -1,0 +1,31 @@
+type Post {
+  id: ID! @unique
+  isPublished: Boolean! @default(value: "false")
+  title: String!
+  text: String!
+}
+
+type TimeSegment {
+  startTime: String
+  endTime: String
+  duration: Int
+}
+
+type GeoPoint {
+  id: ID! @unique
+  longitude: String!
+  latitude: String!
+}
+
+type GeoSegment {
+  id: ID! @unique
+  startPoint: GeoPoint @relation(name: "StartGeoPoint")
+  endPoint: GeoPoint @relation(name: "EndGeoPoint")
+  distance: Float
+}
+
+type RunningDetails {
+  started: String @unique
+  runTimeSegments: [TimeSegment!]!
+  pathSegment: [GeoSegment!]!
+}

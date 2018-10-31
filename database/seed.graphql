@@ -1,0 +1,33 @@
+mutation {
+  first: createRunningDetails(data: {
+    dateTime: "2018-10-30T16:58:30.133Z",
+    runTimeSegments: [
+      {
+        startTime: "2018-10-30T16:58:30.133Z"
+        endTime: "2018-10-30T16:58:30.133Z"
+        duration: 600
+      },
+      {
+        startTime: "2018-10-30T16:58:30.133Z"
+        endTime: "2018-10-30T16:58:30.133Z"
+        duration: 600
+      }
+    ]
+    pathSegment: [
+      { 
+        startPoint: {
+            longitude: "135.69296597528",
+            latitude: "34.77103892591"
+        },
+        endPoint: {
+            longitude: "135.69296597528",
+            latitude: "34.77103892591"
+        },
+        distance: 1.2
+      }
+    ]
+  }) {
+    id
+  }
+
+}
