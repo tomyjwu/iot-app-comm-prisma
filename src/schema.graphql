@@ -1,10 +1,14 @@
 # import Post from "./generated/prisma.graphql"
-# import TimeSegment, GeoPoint, GeoSegment, RunningDetails, RunningDetailsCreateInput from "./generated/prisma.graphql"
+# import TimeSegment, GeoPoint, GeoSegment, RunningDetails, RunningDetailsCreateInput, GeoPoint  from "./generated/prisma.graphql"
 
 type Query {
   """
   iot app comm example service
   """
+  stepCount: Int
+  runTime: Int
+  walkTime: Int
+  location: GeoPoint
   running(dateTime: String): RunningDetails
   runnings: [RunningDetails]
   feed: [Post!]!

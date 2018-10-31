@@ -5,27 +5,32 @@ type Post {
   text: String!
 }
 
-type TimeSegment {
+type RunningTimeSegment {
   startTime: String
   endTime: String
   duration: Int
 }
 
-type GeoPoint {
+type RunningGeoPoint {
   id: ID! @unique
   longitude: String!
   latitude: String!
 }
 
-type GeoSegment {
+type RunningGeoSegment {
   id: ID! @unique
-  startPoint: GeoPoint @relation(name: "StartGeoPoint")
-  endPoint: GeoPoint @relation(name: "EndGeoPoint")
+  startPoint: RunningGeoPoint @relation(name: "StartGeoPoint")
+  endPoint: RunningGeoPoint @relation(name: "EndGeoPoint")
   distance: Float
 }
 
 type RunningDetails {
   started: String @unique
-  runTimeSegments: [TimeSegment!]!
-  pathSegment: [GeoSegment!]!
+  runTimeSegments: [RunningTimeSegment!]!
+  pathSegment: [RunningGeoSegment!]!
+}
+
+type GeoPoint {
+  longitude: String!
+  latitude: String!
 }
